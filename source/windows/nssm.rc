@@ -1,0 +1,725 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "afxres.h"
+#include "commctrl.h"
+#include "resource.h"
+
+#ifdef _DEBUG
+#define NSSM_DEBUG " debug"
+#else
+#define NSSM_DEBUG ""
+#endif
+
+#ifdef _WIN64
+#define NSSM_ARCHITECTURE "64-bit x64"
+#else
+#define NSSM_ARCHITECTURE "32-bit x86"
+#endif
+
+#define NSSM_CONFIGURATION NSSM_ARCHITECTURE NSSM_DEBUG
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+    FILEVERSION 0, 0, 0, 0
+    PRODUCTVERSION 0, 0, 0, 0
+    FILEFLAGSMASK VS_FF_DEBUG | VS_FF_PRERELEASE
+#ifdef _DEBUG
+    FILEFLAGS VS_FF_PRERELEASE | VS_FF_DEBUG
+#else
+    FILEFLAGS VS_FF_PRERELEASE
+#endif
+    FILEOS VOS__WINDOWS32
+    FILETYPE VFT_APP
+    FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+#ifdef UNICODE
+        BLOCK "040904B0"
+#else
+        BLOCK "040904E4"
+#endif
+        BEGIN
+            VALUE "Comments", "http://nssm.cc/"
+            VALUE "CompanyName", "Iain Patterson"
+            VALUE "FileDescription", "The non-sucking service manager"
+            VALUE "FileVersion", "2.25"
+            VALUE "LegalCopyright", "Public Domain; Author Iain Patterson 2003-"
+            VALUE "OriginalFileName", "nssm.exe"
+            VALUE "ProductName", "NSSM " NSSM_CONFIGURATION
+            VALUE "ProductVersion", "2.25"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+#ifdef UNICODE
+        VALUE "Translation", 0x0409, 0x04B0, 0x040C, 0x04B0, 0x0410, 0x04B0
+#else
+        VALUE "Translation", 0x0409, 0x04E4, 0x040C, 0x04E4, 0x0410, 0x04E4
+#endif
+    END
+END
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_NSSM                ICON                    "nssm.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+// English (US) resources
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+IDD_INSTALL DIALOG 0, 0, 286, 126
+STYLE DS_MODALFRAME | DS_SETFONT | WS_CAPTION | WS_POPUP | WS_SYSMENU
+CAPTION "NSSM service installer"
+FONT 8, "MS Sans Serif"
+{
+    CONTROL         "", IDC_TAB1, WC_TABCONTROL, 0, 7, 7, 269, 93
+    LTEXT           "Service name:", IDC_STATIC, 7, 106, 52, 8, SS_LEFT
+    EDITTEXT        IDC_NAME, 64, 104, 98, 12, ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "Install service", IDOK, 172, 104, 65, 14
+    PUSHBUTTON      "Cancel", IDCANCEL, 242, 104, 35, 14
+}
+
+IDD_REMOVE DIALOG  0, 0, 223, 28
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "NSSM service remover"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Remove service",IDC_REMOVE,154,7,62,14
+    LTEXT           "Service name:",IDC_STATIC,8,9,46,8
+    EDITTEXT        IDC_NAME,59,7,87,14,ES_AUTOHSCROLL
+END
+
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+IDD_EDIT DIALOG 0, 0, 286, 126
+STYLE DS_MODALFRAME | DS_SETFONT | WS_CAPTION | WS_POPUP | WS_SYSMENU
+CAPTION "NSSM service editor"
+FONT 8, "MS Sans Serif"
+{
+    CONTROL         "", IDC_TAB1, WC_TABCONTROL, 0, 7, 7, 269, 93
+    LTEXT           "Service name:", IDC_STATIC, 7, 106, 52, 8, SS_LEFT
+    EDITTEXT        IDC_NAME, 64, 104, 98, 12, ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "Edit service", IDOK, 172, 104, 50, 14
+    PUSHBUTTON      "Cancel", IDCANCEL, 227, 104, 50, 14
+}
+
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+IDD_APPLICATION DIALOG 9, 20, 261, 75
+STYLE DS_SHELLFONT | WS_VISIBLE | WS_CHILD | DS_CONTROL
+FONT 8, "MS Sans Serif"
+{
+    GROUPBOX        "Application", IDC_STATIC, 7, 7, 251, 68
+    LTEXT           "Path:", IDC_STATIC, 13, 18, 53, 8, SS_LEFT
+    EDITTEXT        IDC_PATH, 70, 16, 167, 12, ES_AUTOHSCROLL, WS_EX_ACCEPTFILES
+    DEFPUSHBUTTON   "...", IDC_BROWSE, 239, 15, 15, 14
+    LTEXT           "Startup directory:", IDC_STATIC, 13, 34, 64, 8, SS_LEFT
+    EDITTEXT        IDC_DIR, 70, 32, 167, 12, ES_AUTOHSCROLL, WS_EX_ACCEPTFILES
+    DEFPUSHBUTTON   "...", IDC_BROWSE_DIR, 239, 31, 15, 14
+    LTEXT           "Arguments:", IDC_STATIC, 13, 50, 53, 8, SS_LEFT
+    EDITTEXT        IDC_FLAGS, 70, 48, 184, 12, ES_AUTOHSCROLL, WS_EX_ACCEPTFILES
+}
+
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+IDD_NATIVE DIALOG 9, 20, 261, 75
+STYLE DS_SHELLFONT | WS_VISIBLE | WS_CHILD | DS_CONTROL
+FONT 8, "MS Sans Serif"
+{
+    GROUPBOX        "Service", IDC_STATIC, 7, 7, 251, 68
+    LTEXT           "Image path:", IDC_STATIC, 13, 18, 53, 8, SS_LEFT
+    EDITTEXT        IDC_PATH, 70, 16, 184, 12, ES_AUTOHSCROLL, WS_EX_ACCEPTFILES
+}
+
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+IDD_DETAILS DIALOG 9, 20, 261, 75
+STYLE DS_SHELLFONT | WS_VISIBLE | WS_CHILD | DS_CONTROL
+FONT 8, "MS Sans Serif"
+{
+    GROUPBOX        "Details", IDC_STATIC, 7, 7, 251, 68
+    LTEXT           "Display name:", IDC_STATIC, 13, 18, 45, 8, SS_LEFT
+    EDITTEXT        IDC_DISPLAYNAME, 70, 16, 184, 12, ES_AUTOHSCROLL
+    LTEXT           "Description:", IDC_STATIC, 13, 34, 38, 8, SS_LEFT
+    EDITTEXT        IDC_DESCRIPTION, 70, 32, 184, 22, ES_AUTOHSCROLL, WS_EX_ACCEPTFILES
+    LTEXT           "Startup type:", IDC_STATIC, 13, 60, 41, 8, SS_LEFT
+    COMBOBOX        IDC_STARTUP, 70, 58, 100, 120, CBS_DROPDOWNLIST | CBS_HASSTRINGS | WS_TABSTOP
+}
+
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+IDD_LOGON DIALOG 9, 20, 261, 75
+STYLE DS_SHELLFONT | WS_VISIBLE | WS_CHILD | DS_CONTROL
+FONT 8, "MS Sans Serif"
+{
+    GROUPBOX        "Log on as", IDC_STATIC, 7, 7, 251, 68
+    AUTORADIOBUTTON "Local System account", IDC_LOCALSYSTEM, 13, 18, 86, 8
+    AUTOCHECKBOX    "Allow service to interact with desktop", IDC_INTERACT, 101, 18, 133, 8
+    AUTORADIOBUTTON "Virtual service account", IDC_VIRTUAL_SERVICE, 13, 32, 101, 8
+    AUTORADIOBUTTON "This account:", IDC_ACCOUNT, 13, 46, 59, 8
+    EDITTEXT        IDC_USERNAME, 75, 44, 178, 12, ES_AUTOHSCROLL
+    LTEXT           "Password:", IDC_STATIC, 25, 60, 32, 8, SS_LEFT
+    EDITTEXT        IDC_PASSWORD1, 75, 58, 88, 12, ES_AUTOHSCROLL | ES_PASSWORD
+    EDITTEXT        IDC_PASSWORD2, 165, 58, 88, 12, ES_AUTOHSCROLL | ES_PASSWORD
+}
+
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+IDD_DEPENDENCIES DIALOG 9, 20, 261, 75
+STYLE DS_SHELLFONT | WS_VISIBLE | WS_CHILD | DS_CONTROL
+FONT 8, "MS Sans Serif"
+{
+    GROUPBOX        "This service depends on the following system components", IDC_STATIC, 7, 7, 251, 68
+    EDITTEXT        IDC_DEPENDENCIES, 13, 18, 238, 48, ES_AUTOHSCROLL | ES_AUTOVSCROLL | ES_MULTILINE | ES_WANTRETURN
+}
+
+
+
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+IDD_PROCESS DIALOG 9, 20, 261, 75
+STYLE DS_SHELLFONT | WS_VISIBLE | WS_CHILD | DS_CONTROL
+FONT 8, "MS Sans Serif"
+{
+    GROUPBOX        "Process", IDC_STATIC, 7, 7, 251, 68
+    LTEXT           "Priority:", IDC_STATIC, 13, 18, 32, 8, SS_LEFT
+    COMBOBOX        IDC_PRIORITY, 40, 16, 63, 120, CBS_DROPDOWNLIST | CBS_HASSTRINGS | WS_TABSTOP
+    LTEXT           "Affinity:", IDC_STATIC, 135, 18, 32, 8, SS_LEFT
+    AUTOCHECKBOX    "All processors", IDC_AFFINITY_ALL, 161, 18, 65, 8, SS_LEFT
+    AUTOCHECKBOX    "Console window", IDC_CONSOLE, 13, 32, 80, 8
+    LTEXT           "CPUs:", IDC_STATIC, 135, 32, 20, 8, SS_LEFT
+    LISTBOX         IDC_AFFINITY, 161, 31, 88, 48, LBS_EXTENDEDSEL | LBS_HASSTRINGS | LBS_MULTICOLUMN | WS_TABSTOP | WS_HSCROLL
+}
+
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+IDD_SHUTDOWN DIALOG 9, 20, 261, 75
+STYLE DS_SHELLFONT | WS_VISIBLE | WS_CHILD | DS_CONTROL
+FONT 8, "MS Sans Serif"
+{
+    GROUPBOX        "Shutdown", IDC_STATIC, 7, 7, 251, 68
+    AUTOCHECKBOX    "Generate Control-C", IDC_METHOD_CONSOLE, 13, 18, 76, 8
+    LTEXT           "Timeout:", IDC_STATIC, 135, 18, 26, 8, SS_LEFT
+    EDITTEXT        IDC_KILL_CONSOLE, 163, 16, 29, 12, ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "ms", IDC_STATIC, 194, 18, 10, 8, SS_LEFT
+    AUTOCHECKBOX    "Send WM_CLOSE to windows", IDC_METHOD_WINDOW, 13, 32, 113, 8
+    LTEXT           "Timeout:", IDC_STATIC, 135, 32, 26, 8, SS_LEFT
+    EDITTEXT        IDC_KILL_WINDOW, 163, 30, 29, 12, ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "ms", IDC_STATIC, 194, 32, 10, 8, SS_LEFT
+    AUTOCHECKBOX    "Post WM_QUIT to threads", IDC_METHOD_THREADS, 13, 46, 100, 8
+    EDITTEXT        IDC_KILL_THREADS, 163, 44, 29, 12, ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "ms", IDC_STATIC, 194, 46, 10, 8, SS_LEFT
+    LTEXT           "Timeout:", IDC_STATIC, 135, 46, 26, 8, SS_LEFT
+    AUTOCHECKBOX    "Terminate process", IDC_METHOD_TERMINATE, 13, 60, 74, 8
+    AUTOCHECKBOX    "Kill process tree", IDC_KILL_PROCESS_TREE, 135, 60, 74, 8
+}
+
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+IDD_APPEXIT DIALOG 9, 20, 261, 75
+STYLE DS_SHELLFONT | WS_VISIBLE | WS_CHILD | DS_CONTROL
+FONT 8, "MS Sans Serif"
+{
+    GROUPBOX        "Throttling", IDC_STATIC, 7, 7, 251, 25
+    LTEXT           "Delay restart if application runs for less than", IDC_STATIC, 13, 18, 137, 8, SS_LEFT
+    EDITTEXT        IDC_THROTTLE, 155, 16, 29, 12, ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "ms", IDC_STATIC, 186, 18, 10, 8, SS_LEFT
+    GROUPBOX        "Restart", IDC_STATIC, 7, 33, 251, 42
+    LTEXT           "Action to take when application exits\nother than in response to a controlled\nservice shutdown:", IDC_STATIC, 14, 42, 127, 24, SS_LEFT
+    COMBOBOX        IDC_APPEXIT, 143, 40, 110, 120, CBS_DROPDOWNLIST | CBS_HASSTRINGS | WS_TABSTOP
+    LTEXT           "Delay restart by", IDC_STATIC, 146, 58, 52, 8, SS_LEFT
+    EDITTEXT        IDC_RESTART_DELAY, 198, 56, 29, 12, ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "ms", IDC_STATIC, 229, 58, 10, 8, SS_LEFT
+}
+
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+IDD_IO DIALOG 9, 20, 261, 75
+STYLE DS_SHELLFONT | WS_VISIBLE | WS_CHILD | DS_CONTROL
+FONT 8, "MS Sans Serif"
+{
+    GROUPBOX        "I/O redirection", IDC_STATIC, 7, 7, 251, 68
+    LTEXT           "Input (stdin):", IDC_STATIC, 13, 18, 53, 8, SS_LEFT
+    EDITTEXT        IDC_STDIN, 70, 16, 167, 12, ES_AUTOHSCROLL, WS_EX_ACCEPTFILES
+    DEFPUSHBUTTON   "...", IDC_BROWSE_STDIN, 239, 15, 15, 14
+    LTEXT           "Output (stdout):", IDC_STATIC, 13, 34, 53, 8, SS_LEFT
+    EDITTEXT        IDC_STDOUT, 70, 32, 167, 12, ES_AUTOHSCROLL, WS_EX_ACCEPTFILES
+    DEFPUSHBUTTON   "...", IDC_BROWSE_STDOUT, 239, 31, 15, 14
+    LTEXT           "Error (stderr):", IDC_STATIC, 13, 50, 53, 8, SS_LEFT
+    EDITTEXT        IDC_STDERR, 70, 48, 167, 12, ES_AUTOHSCROLL, WS_EX_ACCEPTFILES
+    DEFPUSHBUTTON   "...", IDC_BROWSE_STDERR, 239, 47, 15, 14
+    AUTOCHECKBOX    "Timestamp", IDC_TIMESTAMP, 70, 63, 53, 8
+}
+
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+IDD_ROTATION DIALOG 9, 20, 261, 75
+STYLE DS_SHELLFONT | WS_VISIBLE | WS_CHILD | DS_CONTROL
+FONT 8, "MS Sans Serif"
+{
+    GROUPBOX        "File rotation", IDC_STATIC, 7, 7, 251, 68
+    AUTOCHECKBOX    "Replace existing Output and/or Error files", IDC_TRUNCATE, 13, 18, 145, 8
+    AUTOCHECKBOX    "Rotate files", IDC_ROTATE, 13, 32, 51, 8
+    AUTOCHECKBOX    "Rotate while service is running", IDC_ROTATE_ONLINE, 71, 32, 121, 8
+    LTEXT           "Restrict rotation to files older than", IDC_STATIC, 25, 46, 119, 8
+    EDITTEXT        IDC_ROTATE_SECONDS, 140, 44, 29, 12, ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "seconds", IDC_STATIC, 171, 46, 35, 8, SS_LEFT
+    LTEXT           "Restrict rotation to files bigger than", IDC_STATIC, 25, 60, 123, 8
+    EDITTEXT        IDC_ROTATE_BYTES_LOW, 140, 58, 49, 12, ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "bytes", IDC_STATIC, 191, 60, 20, 8, SS_LEFT
+}
+
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+IDD_ENVIRONMENT DIALOG 9, 20, 261, 75
+STYLE DS_SHELLFONT | WS_VISIBLE | WS_CHILD | DS_CONTROL
+FONT 8, "MS Sans Serif"
+{
+    GROUPBOX        "Environment variables", IDC_STATIC, 7, 7, 251, 68
+    EDITTEXT        IDC_ENVIRONMENT, 13, 18, 238, 36, ES_AUTOHSCROLL | ES_AUTOVSCROLL | ES_MULTILINE | ES_WANTRETURN
+    AUTOCHECKBOX    "Replace default environment (srvany compatible)", IDC_ENVIRONMENT_REPLACE, 13, 60, 238, 8
+}
+
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+IDD_HOOKS DIALOG 9, 20, 261, 75
+STYLE DS_SHELLFONT | WS_VISIBLE | WS_CHILD | DS_CONTROL
+FONT 8, "MS Sans Serif"
+{
+    GROUPBOX        "Event hooks", IDC_STATIC, 7, 7, 251, 68
+    LTEXT           "Event:", IDC_STATIC, 13, 18, 32, 8, SS_LEFT
+    COMBOBOX        IDC_HOOK_EVENT, 50, 16, 70, 120, CBS_DROPDOWNLIST | CBS_HASSTRINGS | WS_TABSTOP
+    COMBOBOX        IDC_HOOK_ACTION, 123, 16, 120, 120, CBS_DROPDOWNLIST | CBS_HASSTRINGS | WS_TABSTOP
+    LTEXT           "Command:", IDC_STATIC, 13, 34, 32, 8, SS_LEFT
+    EDITTEXT        IDC_HOOK, 50, 32, 187, 12, ES_AUTOHSCROLL, WS_EX_ACCEPTFILES
+    DEFPUSHBUTTON   "...", IDC_BROWSE_HOOK, 239, 31, 15, 14
+    AUTOCHECKBOX    "Redirect output from hooks", IDC_REDIRECT_HOOK, 13, 60, 238, 8
+}
+
+
+// English (US) resources
+/////////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////////////////
+// French resources
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+LANGUAGE LANG_FRENCH, SUBLANG_FRENCH
+IDD_INSTALL DIALOG 0, 0, 282, 126
+STYLE DS_MODALFRAME | DS_SETFONT | WS_CAPTION | WS_POPUP | WS_SYSMENU
+CAPTION "Installation d'un service NSSM"
+FONT 8, "MS Sans Serif"
+{
+    CONTROL         "", IDC_TAB1, WC_TABCONTROL, 0, 7, 7, 269, 93
+    LTEXT           "Nom du service:", IDC_STATIC, 7, 106, 52, 8, SS_LEFT
+    EDITTEXT        IDC_NAME, 64, 104, 98, 12, ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "Installer le service", IDOK, 172, 104, 65, 14
+    PUSHBUTTON      "Annuler", IDCANCEL, 242, 104, 35, 14
+}
+
+IDD_REMOVE DIALOG  0, 0, 223, 28
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Suppression d'un service NSSM"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Supprimer le service",IDC_REMOVE,140,7,76,14
+    LTEXT           "Nom du\nservice:",IDC_STATIC,8,6,46,16
+    EDITTEXT        IDC_NAME,43,7,90,14,ES_AUTOHSCROLL
+END
+
+LANGUAGE LANG_FRENCH, SUBLANG_FRENCH
+IDD_EDIT DIALOG 0, 0, 282, 126
+STYLE DS_MODALFRAME | DS_SETFONT | WS_CAPTION | WS_POPUP | WS_SYSMENU
+CAPTION "Edition d'un service NSSM"
+FONT 8, "MS Sans Serif"
+{
+    CONTROL         "", IDC_TAB1, WC_TABCONTROL, 0, 7, 7, 269, 93
+    LTEXT           "Nom du service:", IDC_STATIC, 7, 106, 52, 8, SS_LEFT
+    EDITTEXT        IDC_NAME, 64, 104, 98, 12, ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "Éditer le service", IDOK, 172, 104, 65, 14
+    PUSHBUTTON      "Annuler", IDCANCEL, 242, 104, 35, 14
+}
+
+LANGUAGE LANG_FRENCH, SUBLANG_FRENCH
+IDD_APPLICATION DIALOG 9, 20, 261, 75
+STYLE DS_SHELLFONT | WS_VISIBLE | WS_CHILD | DS_CONTROL
+FONT 8, "MS Sans Serif"
+{
+    GROUPBOX        "Application", IDC_STATIC, 7, 7, 251, 68
+    LTEXT           "Chemin:", IDC_STATIC, 13, 18, 53, 8, SS_LEFT
+    EDITTEXT        IDC_PATH, 80, 16, 157, 12, ES_AUTOHSCROLL, WS_EX_ACCEPTFILES
+    DEFPUSHBUTTON   "...", IDC_BROWSE, 239, 15, 15, 14
+    LTEXT           "Rép. de démarrage:", IDC_STATIC, 13, 34, 64, 8, SS_LEFT
+    EDITTEXT        IDC_DIR, 80, 32, 157, 12, ES_AUTOHSCROLL, WS_EX_ACCEPTFILES
+    DEFPUSHBUTTON   "...", IDC_BROWSE_DIR, 239, 31, 15, 14
+    LTEXT           "Paramètres:", IDC_STATIC, 13, 50, 53, 8, SS_LEFT
+    EDITTEXT        IDC_FLAGS, 80, 48, 174, 12, ES_AUTOHSCROLL, WS_EX_ACCEPTFILES
+}
+
+LANGUAGE LANG_FRENCH, SUBLANG_FRENCH
+IDD_DETAILS DIALOG 9, 20, 261, 75
+STYLE DS_SHELLFONT | WS_VISIBLE | WS_CHILD | DS_CONTROL
+FONT 8, "MS Sans Serif"
+{
+    GROUPBOX        "Détails", IDC_STATIC, 7, 7, 251, 68
+    LTEXT           "Nom complet:", IDC_STATIC, 13, 18, 45, 8, SS_LEFT
+    EDITTEXT        IDC_DISPLAYNAME, 81, 16, 173, 12, ES_AUTOHSCROLL
+    LTEXT           "Description:", IDC_STATIC, 13, 34, 38, 8, SS_LEFT
+    EDITTEXT        IDC_DESCRIPTION, 81, 32, 173, 22, ES_AUTOHSCROLL, WS_EX_ACCEPTFILES
+    LTEXT           "Type de démarrage:", IDC_STATIC, 13, 60, 70, 8, SS_LEFT
+    COMBOBOX        IDC_STARTUP, 81, 58, 105, 120, CBS_DROPDOWNLIST | CBS_HASSTRINGS | WS_TABSTOP
+}
+
+LANGUAGE LANG_FRENCH, SUBLANG_FRENCH
+IDD_LOGON DIALOG 9, 20, 261, 75
+STYLE DS_SHELLFONT | WS_VISIBLE | WS_CHILD | DS_CONTROL
+FONT 8, "MS Sans Serif"
+{
+    GROUPBOX        "Ouvrir une session en tant que", IDC_STATIC, 7, 7, 251, 68
+    AUTORADIOBUTTON "Compte système local", IDC_LOCALSYSTEM, 13, 18, 86, 8
+    AUTOCHECKBOX    "Autoriser à interagir avec le Bureau", IDC_INTERACT, 101, 18, 133, 8
+    AUTORADIOBUTTON "Compte virtuel", IDC_VIRTUAL_SERVICE, 13, 32, 86, 8
+    AUTORADIOBUTTON "Compte:", IDC_ACCOUNT, 13, 46, 59, 8
+    EDITTEXT        IDC_USERNAME, 75, 44, 178, 12, ES_AUTOHSCROLL
+    LTEXT           "Mot de passe:", IDC_STATIC, 25, 60, 48, 8, SS_LEFT
+    EDITTEXT        IDC_PASSWORD1, 75, 58, 88, 12, ES_AUTOHSCROLL | ES_PASSWORD
+    EDITTEXT        IDC_PASSWORD2, 165, 58, 88, 12, ES_AUTOHSCROLL | ES_PASSWORD
+}
+
+LANGUAGE LANG_FRENCH, SUBLANG_FRENCH
+IDD_DEPENDENCIES DIALOG 9, 20, 261, 75
+STYLE DS_SHELLFONT | WS_VISIBLE | WS_CHILD | DS_CONTROL
+FONT 8, "MS Sans Serif"
+{
+    GROUPBOX        "Ce service dépend des composants système suivants", IDC_STATIC, 7, 7, 251, 68
+    EDITTEXT        IDC_DEPENDENCIES, 13, 18, 238, 48, ES_AUTOHSCROLL | ES_AUTOVSCROLL | ES_MULTILINE | ES_WANTRETURN
+}
+
+LANGUAGE LANG_FRENCH, SUBLANG_FRENCH
+IDD_PROCESS DIALOG 9, 20, 261, 75
+STYLE DS_SHELLFONT | WS_VISIBLE | WS_CHILD | DS_CONTROL
+FONT 8, "MS Sans Serif"
+{
+    GROUPBOX        "Processus", IDC_STATIC, 7, 7, 251, 68
+    LTEXT           "Priorité:", IDC_STATIC, 13, 18, 32, 8, SS_LEFT
+    COMBOBOX        IDC_PRIORITY, 40, 16, 93, 120, CBS_DROPDOWNLIST | CBS_HASSTRINGS | WS_TABSTOP
+    LTEXT           "Affinité:", IDC_STATIC, 135, 18, 32, 8, SS_LEFT
+    AUTOCHECKBOX    "Tous les processeurs", IDC_AFFINITY_ALL, 161, 18, 80, 8, SS_LEFT
+    AUTOCHECKBOX    "Afficher la console", IDC_CONSOLE, 13, 32, 80, 8
+    LTEXT           "UC:", IDC_STATIC, 135, 32, 20, 8, SS_LEFT
+    LISTBOX         IDC_AFFINITY, 161, 31, 88, 48, LBS_EXTENDEDSEL | LBS_HASSTRINGS | LBS_MULTICOLUMN | WS_TABSTOP | WS_HSCROLL
+}
+
+LANGUAGE LANG_FRENCH, SUBLANG_FRENCH
+IDD_NATIVE DIALOG 9, 20, 261, 75
+STYLE DS_SHELLFONT | WS_VISIBLE | WS_CHILD | DS_CONTROL
+FONT 8, "MS Sans Serif"
+{
+    GROUPBOX        "Service", IDC_STATIC, 7, 7, 251, 68
+    LTEXT           "Chemin:", IDC_STATIC, 13, 18, 53, 8, SS_LEFT
+    EDITTEXT        IDC_PATH, 70, 16, 184, 12, ES_AUTOHSCROLL, WS_EX_ACCEPTFILES
+}
+
+LANGUAGE LANG_FRENCH, SUBLANG_FRENCH
+IDD_SHUTDOWN DIALOG 9, 20, 261, 75
+STYLE DS_SHELLFONT | WS_VISIBLE | WS_CHILD | DS_CONTROL
+FONT 8, "MS Sans Serif"
+{
+    GROUPBOX        "Arrêt", IDC_STATIC, 7, 7, 251, 68
+    AUTOCHECKBOX    "Générer Contrôle-C", IDC_METHOD_CONSOLE, 13, 18, 76, 8
+    LTEXT           "délai:", IDC_STATIC, 183, 18, 21, 8, SS_LEFT
+    EDITTEXT        IDC_KILL_CONSOLE, 206, 16, 29, 12, ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "ms", IDC_STATIC, 237, 18, 10, 8, SS_LEFT
+    AUTOCHECKBOX    "Envoyer WM_CLOSE à l'application", IDC_METHOD_WINDOW, 13, 32, 128, 8
+    LTEXT           "délai:", IDC_STATIC, 183, 32, 21, 8, SS_LEFT
+    EDITTEXT        IDC_KILL_WINDOW, 206, 30, 29, 12, ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "ms", IDC_STATIC, 237, 32, 10, 8, SS_LEFT
+    AUTOCHECKBOX    "Envoyer WM_QUIT à tous les fils du processus", IDC_METHOD_THREADS, 13, 46, 162, 8
+    LTEXT           "délai:", IDC_STATIC, 183, 46, 21, 8, SS_LEFT
+    EDITTEXT        IDC_KILL_THREADS, 206, 44, 29, 12, ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "ms", IDC_STATIC, 237, 46, 10, 8, SS_LEFT
+    AUTOCHECKBOX    "Terminer le processus", IDC_METHOD_TERMINATE, 13, 60, 82, 8
+    AUTOCHECKBOX    "Interruption des processus-fils", IDC_KILL_PROCESS_TREE, 135, 60, 105, 8
+}
+
+LANGUAGE LANG_FRENCH, SUBLANG_FRENCH
+IDD_APPEXIT DIALOG 9, 20, 261, 75
+STYLE DS_SHELLFONT | WS_VISIBLE | WS_CHILD | DS_CONTROL
+FONT 8, "MS Sans Serif"
+{
+    GROUPBOX        "Régulation (Throttling)", IDC_STATIC, 7, 7, 251, 25
+    LTEXT           "Retarder le redémarrage si l'application a tourné moins de", IDC_STATIC, 13, 18, 185, 8, SS_LEFT
+    EDITTEXT        IDC_THROTTLE, 208, 16, 29, 12, ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "ms", IDC_STATIC, 239, 18, 10, 8, SS_LEFT
+    GROUPBOX        "Redémarrer", IDC_STATIC, 7, 33, 251, 42
+    LTEXT           "Action à entreprendre si l'application\nse termine autrement qu'en réponse à\nun arrêt contrôlé du service:", IDC_STATIC, 14, 42, 127, 24, SS_LEFT
+    COMBOBOX        IDC_APPEXIT, 142, 40, 112, 120, CBS_DROPDOWNLIST | CBS_HASSTRINGS | WS_TABSTOP
+    LTEXT           "Retarder le redém.", IDC_STATIC, 146, 58, 62, 8, SS_LEFT
+    EDITTEXT        IDC_RESTART_DELAY, 208, 56, 29, 12, ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "ms", IDC_STATIC, 239, 58, 10, 8, SS_LEFT
+}
+
+LANGUAGE LANG_FRENCH, SUBLANG_FRENCH
+IDD_IO DIALOG 9, 20, 261, 75
+STYLE DS_SHELLFONT | WS_VISIBLE | WS_CHILD | DS_CONTROL
+FONT 8, "MS Sans Serif"
+{
+    GROUPBOX        "Redirection E/S", IDC_STATIC, 7, 7, 251, 68
+    LTEXT           "Entrée standard (stdin):", IDC_STATIC, 13, 18, 76, 8, SS_LEFT
+    EDITTEXT        IDC_STDIN, 93, 16, 144, 12, ES_AUTOHSCROLL, WS_EX_ACCEPTFILES
+    DEFPUSHBUTTON   "...", IDC_BROWSE_STDIN, 239, 15, 15, 14
+    LTEXT           "Sortie standard (stdout):", IDC_STATIC, 13, 34, 76, 8, SS_LEFT
+    EDITTEXT        IDC_STDOUT, 93, 32, 144, 12, ES_AUTOHSCROLL, WS_EX_ACCEPTFILES
+    DEFPUSHBUTTON   "...", IDC_BROWSE_STDOUT, 239, 31, 15, 14
+    LTEXT           "Sortie d'erreur (stderr):", IDC_STATIC, 13, 50, 78, 8, SS_LEFT
+    EDITTEXT        IDC_STDERR, 93, 48, 144, 12, ES_AUTOHSCROLL, WS_EX_ACCEPTFILES
+    DEFPUSHBUTTON   "...", IDC_BROWSE_STDERR, 239, 47, 15, 14
+    AUTOCHECKBOX    "Timestamp", IDC_TIMESTAMP, 93, 63, 53, 8
+}
+
+LANGUAGE LANG_FRENCH, SUBLANG_FRENCH
+IDD_ROTATION DIALOG 9, 20, 261, 75
+STYLE DS_SHELLFONT | WS_VISIBLE | WS_CHILD | DS_CONTROL
+FONT 8, "MS Sans Serif"
+{
+    GROUPBOX        "Rotation de fichiers", IDC_STATIC, 7, 7, 251, 68
+    AUTOCHECKBOX    "Remplacer les fichiers d'entrée ou de sortie existants", IDC_TRUNCATE, 13, 18, 185, 8
+    AUTOCHECKBOX    "Effectuer la rotation des fichiers", IDC_ROTATE, 13, 32, 121, 8
+    AUTOCHECKBOX    "pendant que le service tourne", IDC_ROTATE_ONLINE, 130, 32, 111, 8
+    LTEXT           "Restreindre la rotation aux fichiers plus vieux que", IDC_STATIC, 25, 46, 147, 8
+    EDITTEXT        IDC_ROTATE_SECONDS, 179, 44, 29, 12, ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "seconde(s)", IDC_STATIC, 210, 46, 35, 8, SS_LEFT
+    LTEXT           "Restreindre la rotation aux fichiers plus gros que", IDC_STATIC, 25, 60, 151, 8
+    EDITTEXT        IDC_ROTATE_BYTES_LOW, 179, 58, 49, 12, ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "octet(s)", IDC_STATIC, 230, 60, 23, 8, SS_LEFT
+}
+
+LANGUAGE LANG_FRENCH, SUBLANG_FRENCH
+IDD_ENVIRONMENT DIALOG 9, 20, 261, 75
+STYLE DS_SHELLFONT | WS_VISIBLE | WS_CHILD | DS_CONTROL
+FONT 8, "MS Sans Serif"
+{
+    GROUPBOX        "Variables d'environnement", IDC_STATIC, 7, 7, 251, 68
+    EDITTEXT        IDC_ENVIRONMENT, 13, 18, 238, 36, ES_AUTOHSCROLL | ES_AUTOVSCROLL | ES_MULTILINE | ES_WANTRETURN
+    AUTOCHECKBOX    "Remplacer l'environnement par défaut (mode compatibilité srvany)", IDC_ENVIRONMENT_REPLACE, 13, 60, 238, 8
+}
+
+// French resources
+/////////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////////////////
+// Italian (Italy) resources
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+LANGUAGE LANG_ITALIAN, SUBLANG_ITALIAN
+IDD_INSTALL DIALOG 0, 0, 282, 126
+STYLE DS_MODALFRAME | DS_SETFONT | WS_CAPTION | WS_POPUP | WS_SYSMENU
+CAPTION "NSSM - Installazione Servizio"
+FONT 8, "MS Sans Serif"
+{
+    CONTROL         "", IDC_TAB1, WC_TABCONTROL, 0, 7, 7, 269, 93
+    LTEXT           "Nome servizio:", IDC_STATIC, 7, 106, 52, 8, SS_LEFT
+    EDITTEXT        IDC_NAME, 64, 104, 98, 12, ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "Installa servizio", IDOK, 172, 104, 65, 14
+    PUSHBUTTON      "Annulla", IDCANCEL, 242, 104, 35, 14
+}
+
+IDD_REMOVE DIALOG  0, 0, 223, 28
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "NSSM - Rimozione Servizio"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Rimuovi servizio",IDC_REMOVE,154,7,62,14
+    LTEXT           "Nome servizio:",IDC_STATIC,8,9,46,8
+    EDITTEXT        IDC_NAME,59,7,87,14,ES_AUTOHSCROLL
+END
+
+LANGUAGE LANG_ITALIAN, SUBLANG_ITALIAN
+IDD_EDIT DIALOG 0, 0, 282, 126
+STYLE DS_MODALFRAME | DS_SETFONT | WS_CAPTION | WS_POPUP | WS_SYSMENU
+CAPTION "NSSM - Modifica Servizio"
+FONT 8, "MS Sans Serif"
+{
+    CONTROL         "", IDC_TAB1, WC_TABCONTROL, 0, 7, 7, 269, 93
+    LTEXT           "Nome servizio:", IDC_STATIC, 7, 106, 52, 8, SS_LEFT
+    EDITTEXT        IDC_NAME, 64, 104, 98, 12, ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "Modifica servizio", IDOK, 172, 104, 65, 14
+    PUSHBUTTON      "Annulla", IDCANCEL, 242, 104, 35, 14
+}
+
+LANGUAGE LANG_ITALIAN, SUBLANG_ITALIAN
+IDD_APPLICATION DIALOG 9, 20, 261, 75
+STYLE DS_SHELLFONT | WS_VISIBLE | WS_CHILD | DS_CONTROL
+FONT 8, "MS Sans Serif"
+{
+    GROUPBOX        "Applicazione", IDC_STATIC, 7, 7, 251, 68
+    LTEXT           "Path:", IDC_STATIC, 13, 18, 53, 8, SS_LEFT
+    EDITTEXT        IDC_PATH, 80, 16, 157, 12, ES_AUTOHSCROLL, WS_EX_ACCEPTFILES
+    DEFPUSHBUTTON   "...", IDC_BROWSE, 239, 15, 15, 14
+    LTEXT           "Cartella di avvio:", IDC_STATIC, 13, 34, 64, 8, SS_LEFT
+    EDITTEXT        IDC_DIR, 80, 32, 157, 12, ES_AUTOHSCROLL, WS_EX_ACCEPTFILES
+    DEFPUSHBUTTON   "...", IDC_BROWSE_DIR, 239, 31, 15, 14
+    LTEXT           "Argomenti:", IDC_STATIC, 13, 50, 53, 8, SS_LEFT
+    EDITTEXT        IDC_FLAGS, 80, 48, 174, 12, ES_AUTOHSCROLL, WS_EX_ACCEPTFILES
+}
+
+LANGUAGE LANG_ITALIAN, SUBLANG_ITALIAN
+IDD_DETAILS DIALOG 9, 20, 261, 75
+STYLE DS_SHELLFONT | WS_VISIBLE | WS_CHILD | DS_CONTROL
+FONT 8, "MS Sans Serif"
+{
+    GROUPBOX        "Dettagli", IDC_STATIC, 7, 7, 251, 68
+    LTEXT           "Nome visualizzato:", IDC_STATIC, 13, 18, 59, 8, SS_LEFT
+    EDITTEXT        IDC_DISPLAYNAME, 75, 16, 179, 12, ES_AUTOHSCROLL
+    LTEXT           "Descrizione:", IDC_STATIC, 13, 34, 38, 8, SS_LEFT
+    EDITTEXT        IDC_DESCRIPTION, 75, 32, 179, 22, ES_AUTOHSCROLL, WS_EX_ACCEPTFILES
+    LTEXT           "Tipo di avvio:", IDC_STATIC, 13, 60, 46, 8, SS_LEFT
+    COMBOBOX        IDC_STARTUP, 75, 58, 105, 120, CBS_DROPDOWNLIST | CBS_HASSTRINGS | WS_TABSTOP
+}
+
+LANGUAGE LANG_ITALIAN, SUBLANG_ITALIAN
+IDD_LOGON DIALOG 9, 20, 261, 75
+STYLE DS_SHELLFONT | WS_VISIBLE | WS_CHILD | DS_CONTROL
+FONT 8, "MS Sans Serif"
+{
+    GROUPBOX        "Connessione", IDC_STATIC, 7, 7, 251, 68
+    AUTORADIOBUTTON "Account di Sistema locale", IDC_LOCALSYSTEM, 13, 18, 96, 8
+    AUTOCHECKBOX    "Consenti di interagire col desktop", IDC_INTERACT, 112, 18, 133, 8
+    AUTORADIOBUTTON "Account virtuale", IDC_VIRTUAL_SERVICE, 13, 18, 96, 8
+    AUTORADIOBUTTON "Account:", IDC_ACCOUNT, 13, 46, 59, 8
+    EDITTEXT        IDC_USERNAME, 75, 44, 178, 12, ES_AUTOHSCROLL
+    LTEXT           "Password:", IDC_STATIC, 25, 60, 32, 8, SS_LEFT
+    EDITTEXT        IDC_PASSWORD1, 75, 58, 88, 12, ES_AUTOHSCROLL | ES_PASSWORD
+    EDITTEXT        IDC_PASSWORD2, 75, 58, 88, 12, ES_AUTOHSCROLL | ES_PASSWORD
+}
+
+LANGUAGE LANG_ITALIAN, SUBLANG_ITALIAN
+IDD_DEPENDENCIES DIALOG 9, 20, 261, 75
+STYLE DS_SHELLFONT | WS_VISIBLE | WS_CHILD | DS_CONTROL
+FONT 8, "MS Sans Serif"
+{
+    GROUPBOX        "Questo servizio dipende dai seguenti componenti di sistema", IDC_STATIC, 7, 7, 251, 68
+    EDITTEXT        IDC_DEPENDENCIES, 13, 18, 238, 48, ES_AUTOHSCROLL | ES_AUTOVSCROLL | ES_MULTILINE | ES_WANTRETURN
+}
+
+LANGUAGE LANG_ITALIAN, SUBLANG_ITALIAN
+IDD_PROCESS DIALOG 9, 20, 261, 75
+STYLE DS_SHELLFONT | WS_VISIBLE | WS_CHILD | DS_CONTROL
+FONT 8, "MS Sans Serif"
+{
+    GROUPBOX        "Processo", IDC_STATIC, 7, 7, 251, 68
+    LTEXT           "Priorità:", IDC_STATIC, 13, 18, 32, 8, SS_LEFT
+    COMBOBOX        IDC_PRIORITY, 40, 16, 83, 120, CBS_DROPDOWNLIST | CBS_HASSTRINGS | WS_TABSTOP
+    LTEXT           "Affinità:", IDC_STATIC, 135, 18, 32, 8, SS_LEFT
+    AUTOCHECKBOX    "Tutti i processori", IDC_AFFINITY_ALL, 161, 18, 80, 8, SS_LEFT
+    AUTOCHECKBOX    "Finestra di console", IDC_CONSOLE, 13, 32, 80, 8
+    LTEXT           "CPU:", IDC_STATIC, 135, 32, 20, 8, SS_LEFT
+    LISTBOX         IDC_AFFINITY, 161, 31, 88, 48, LBS_EXTENDEDSEL | LBS_HASSTRINGS | LBS_MULTICOLUMN | WS_TABSTOP | WS_HSCROLL
+}
+
+LANGUAGE LANG_ITALIAN, SUBLANG_ITALIAN
+IDD_NATIVE DIALOG 9, 20, 261, 75
+STYLE DS_SHELLFONT | WS_VISIBLE | WS_CHILD | DS_CONTROL
+FONT 8, "MS Sans Serif"
+{
+    GROUPBOX        "Servizio", IDC_STATIC, 7, 7, 251, 68
+    LTEXT           "File eseguibile:", IDC_STATIC, 13, 18, 53, 8, SS_LEFT
+    EDITTEXT        IDC_PATH, 70, 16, 184, 12, ES_AUTOHSCROLL, WS_EX_ACCEPTFILES
+}
+
+LANGUAGE LANG_ITALIAN, SUBLANG_ITALIAN
+IDD_SHUTDOWN DIALOG 9, 20, 261, 75
+STYLE DS_SHELLFONT | WS_VISIBLE | WS_CHILD | DS_CONTROL
+FONT 8, "MS Sans Serif"
+{
+    GROUPBOX        "Arresto Applicazione", IDC_STATIC, 7, 7, 251, 68
+    AUTOCHECKBOX    "Genera Control-C", IDC_METHOD_CONSOLE, 13, 18, 76, 8
+    LTEXT           "Attesa", IDC_STATIC, 135, 18, 26, 8, SS_LEFT
+    EDITTEXT        IDC_KILL_CONSOLE, 163, 16, 29, 12, ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "ms", IDC_STATIC, 194, 18, 10, 8, SS_LEFT
+    AUTOCHECKBOX    "Invia WM_CLOSE alle windows", IDC_METHOD_WINDOW, 13, 32, 113, 8
+    LTEXT           "Attesa", IDC_STATIC, 135, 32, 26, 8, SS_LEFT
+    EDITTEXT        IDC_KILL_WINDOW, 163, 30, 29, 12, ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "ms", IDC_STATIC, 194, 32, 10, 8, SS_LEFT
+    AUTOCHECKBOX    "Invia WM_QUIT ai threads", IDC_METHOD_THREADS, 13, 46, 100, 8
+    EDITTEXT        IDC_KILL_THREADS, 163, 44, 29, 12, ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "ms", IDC_STATIC, 194, 46, 10, 8, SS_LEFT
+    LTEXT           "Attesa", IDC_STATIC, 135, 46, 26, 8, SS_LEFT
+    AUTOCHECKBOX    "Termina processo", IDC_METHOD_TERMINATE, 13, 60, 74, 8
+    AUTOCHECKBOX    "Termina l'albero di processo", IDC_KILL_PROCESS_TREE, 135, 60, 102, 8
+}
+
+LANGUAGE LANG_ITALIAN, SUBLANG_ITALIAN
+IDD_APPEXIT DIALOG 9, 20, 261, 75
+STYLE DS_SHELLFONT | WS_VISIBLE | WS_CHILD | DS_CONTROL
+FONT 8, "MS Sans Serif"
+{
+    GROUPBOX        "Attesa riavvio", IDC_STATIC, 7, 7, 251, 25
+    LTEXT           "Ritarda riavvio se l'applicazione esce entro", IDC_STATIC, 13, 18, 137, 8, SS_LEFT
+    EDITTEXT        IDC_THROTTLE, 155, 16, 29, 12, ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "ms", IDC_STATIC, 186, 18, 10, 8, SS_LEFT
+    GROUPBOX        "Riavvio", IDC_STATIC, 7, 33, 251, 42
+    LTEXT           "Azione da eseguire se l'applicazione\nesce senza che sia stato richiesto un\narresto del servizio:", IDC_STATIC, 14, 42, 127, 24, SS_LEFT
+    COMBOBOX        IDC_APPEXIT, 141, 40, 112, 120, CBS_DROPDOWNLIST | CBS_HASSTRINGS | WS_TABSTOP
+    LTEXT           "Ritarda il riavvio di", IDC_STATIC, 144, 58, 52, 8, SS_LEFT
+    EDITTEXT        IDC_RESTART_DELAY, 196, 56, 29, 12, ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "ms", IDC_STATIC, 227, 58, 10, 8, SS_LEFT
+}
+
+LANGUAGE LANG_ITALIAN, SUBLANG_ITALIAN
+IDD_IO DIALOG 9, 20, 261, 75
+STYLE DS_SHELLFONT | WS_VISIBLE | WS_CHILD | DS_CONTROL
+FONT 8, "MS Sans Serif"
+{
+    GROUPBOX        "Redirezione I/O", IDC_STATIC, 7, 7, 251, 68
+    LTEXT           "Input (stdin):", IDC_STATIC, 13, 18, 53, 8, SS_LEFT
+    EDITTEXT        IDC_STDIN, 70, 16, 167, 12, ES_AUTOHSCROLL, WS_EX_ACCEPTFILES
+    DEFPUSHBUTTON   "...", IDC_BROWSE_STDIN, 239, 15, 15, 14
+    LTEXT           "Output (stdout):", IDC_STATIC, 13, 34, 53, 8, SS_LEFT
+    EDITTEXT        IDC_STDOUT, 70, 32, 167, 12, ES_AUTOHSCROLL, WS_EX_ACCEPTFILES
+    DEFPUSHBUTTON   "...", IDC_BROWSE_STDOUT, 239, 31, 15, 14
+    LTEXT           "Errore (stderr):", IDC_STATIC, 13, 50, 53, 8, SS_LEFT
+    EDITTEXT        IDC_STDERR, 70, 48, 167, 12, ES_AUTOHSCROLL, WS_EX_ACCEPTFILES
+    DEFPUSHBUTTON   "...", IDC_BROWSE_STDERR, 239, 47, 15, 14
+    AUTOCHECKBOX    "Timestamp", IDC_TIMESTAMP, 70, 63, 53, 8
+}
+
+LANGUAGE LANG_ITALIAN, SUBLANG_ITALIAN
+IDD_ROTATION DIALOG 9, 20, 261, 75
+STYLE DS_SHELLFONT | WS_VISIBLE | WS_CHILD | DS_CONTROL
+FONT 8, "MS Sans Serif"
+{
+    GROUPBOX        "Rotazione dei File I/O", IDC_STATIC, 7, 7, 251, 68
+    AUTOCHECKBOX    "Sovrascrivi File di Output e/o Errore esistenti", IDC_TRUNCATE, 13, 18, 151, 8
+    AUTOCHECKBOX    "Ruota i File", IDC_ROTATE, 13, 32, 51, 8
+    AUTOCHECKBOX    "Ruota mentre il servizio è in esecuzione", IDC_ROTATE_ONLINE, 71, 32, 141, 8
+    LTEXT           "Ruota solo i File più vecchi di", IDC_STATIC, 25, 46, 119, 8
+    EDITTEXT        IDC_ROTATE_SECONDS, 140, 44, 29, 12, ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "secondi", IDC_STATIC, 171, 46, 35, 8, SS_LEFT
+    LTEXT           "Ruota solo i File più grandi di", IDC_STATIC, 25, 60, 123, 8
+    EDITTEXT        IDC_ROTATE_BYTES_LOW, 140, 58, 49, 12, ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "bytes", IDC_STATIC, 191, 60, 20, 8, SS_LEFT
+}
+
+LANGUAGE LANG_ITALIAN, SUBLANG_ITALIAN
+IDD_ENVIRONMENT DIALOG 9, 20, 261, 75
+STYLE DS_SHELLFONT | WS_VISIBLE | WS_CHILD | DS_CONTROL
+FONT 8, "MS Sans Serif"
+{
+    GROUPBOX        "Variabili d'ambiente", IDC_STATIC, 7, 7, 251, 68
+    EDITTEXT        IDC_ENVIRONMENT, 13, 18, 238, 36, ES_AUTOHSCROLL | ES_AUTOVSCROLL | ES_MULTILINE | ES_WANTRETURN
+    AUTOCHECKBOX    "Sostituisci l'ambiente di default (compatibile con srvany)", IDC_ENVIRONMENT_REPLACE, 13, 60, 238, 8
+}
+
+// Italian (Italy) resources
+/////////////////////////////////////////////////////////////////////////////

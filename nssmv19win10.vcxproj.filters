@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="source">
+      <UniqueIdentifier>{45921a16-6c49-4a33-a138-3d8ebc4cf8ee}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="source\windows">
+      <UniqueIdentifier>{d1f1aa08-9b08-4738-b1e3-eb5c3f7aace8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\account.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\console.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\env.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\event.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gui.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\hook.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\imports.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\nssm.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\nssm_io.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\process.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\registry.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\service.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\settings.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\utf8.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\memorymanager.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\constants.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="source\account.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="source\console.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="source\env.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="source\event.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gui.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="source\hook.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="source\imports.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="source\nssm.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="source\nssm_io.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="source\process.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="source\registry.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="source\service.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="source\settings.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="source\utf8.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="source\windows\messages.h">
+      <Filter>source\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="source\version.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="source\resource.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="source\memorymanager.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="source\constants.h">
+      <Filter>source</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="source\windows\nssm.ico">
+      <Filter>source\windows</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="source\windows\messages.rc">
+      <Filter>source\windows</Filter>
+    </ResourceCompile>
+    <ResourceCompile Include="source\windows\nssm.rc">
+      <Filter>source\windows</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="source\windows\messages.mc">
+      <Filter>source\windows</Filter>
+    </CustomBuild>
+  </ItemGroup>
+</Project>
